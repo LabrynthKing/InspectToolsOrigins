@@ -1,0 +1,53 @@
+<!--
+  -     Inspect Tools: Origins => A Replay First Equip Animation Mod For Subnautica And Subnautica: Below Zeor
+  -     Copyright (C) 2026  LabrynthKing
+  -
+  -     This program is free software: you can redistribute it and/or modify
+  -     it under the terms of the GNU Affero General Public License as published
+  -     by the Free Software Foundation, either version 3 of the License, or
+  -     (at your option) any later version.
+  -
+  -     This program is distributed in the hope that it will be useful,
+  -     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  -     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  -     GNU Affero General Public License for more details.
+  -
+  -     You should have received a copy of the GNU Affero General Public License
+  -     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net472</TargetFramework>
+        <AssemblyName>InspectToolsZero</AssemblyName>
+        <Version>1.0.0</Version>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <LangVersion>11</LangVersion>
+        <RootNamespace>InspectToolsZero</RootNamespace>
+
+        <RestoreAdditionalProjectSources>
+            https://api.nuget.org/v3/index.json;
+            https://nuget.bepinex.dev/v3/index.json;
+        </RestoreAdditionalProjectSources>
+
+        <BepInExPluginGuid>com.labrynthking.inspecttoolszero</BepInExPluginGuid>
+        <Authors>LabrynthKing</Authors>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/LabrynthKing/InspectToolsOrigins</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all"/>
+        <PackageReference Include="BepInEx.Core" Version="5.4.21"/>
+        <PackageReference Include="BepInEx.PluginInfoProps" Version="1.1.0"/>
+        <PackageReference Include="UnityEngine.Modules" Version="2019.4.36" IncludeAssets="compile"/>
+        <PackageReference Include="Subnautica.BelowZero.GameLibs" Version="53115.0.0-r.0"/>
+        <PackageReference Include="SubnauticaZero.Nautilus" Version="1.*-*" PrivateAssets="all"/>
+        <PackageReference Include="PolySharp" Version="1.15.0"/>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all"/>
+    </ItemGroup>
+</Project>

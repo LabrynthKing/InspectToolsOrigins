@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="InspectToolsOrigins/InspectToolsOrigins.csproj" />
+  <Project Path="InspectToolsZero/InspectToolsZero.csproj" />
+</Solution>
