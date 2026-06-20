@@ -24,5 +24,5 @@ namespace InspectToolsZero;
 public class Config : ConfigFile
 {
     [Keybind(LabelLanguageId = "OptionInspectButton_Bind", TooltipLanguageId = "OptionDesc_InspectButton_Bind")]
-    public KeyCode InspectKeyBind = KeyCode.I;
+    public KeyCode InspectKeyBind;
 }

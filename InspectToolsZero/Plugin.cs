@@ -45,6 +45,12 @@ public class Plugin : BaseUnityPlugin
 
         ModConfig = OptionsPanelHandler.RegisterModOptions<Config>();
 
+        if (ModConfig.InspectKeyBind is KeyCode.None)
+        {
+            ModConfig.InspectKeyBind = KeyCode.I;
+            ModConfig.Save();
+        }
+
         Harmony.CreateAndPatchAll(Assembly, $"{PluginInfo.PLUGIN_GUID}");
         Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
     }
@@ -56,7 +62,7 @@ public class Plugin : BaseUnityPlugin
 
         if (_isInspecting) return;
 
-        if (!Input.GetKeyDown(KeyCode.I)) return;
+        if (!Input.GetKeyDown(ModConfig.InspectKeyBind)) return;
 
         var heldTool = Inventory.main.GetHeldTool();
         if (heldTool is null || !heldTool.hasFirstUseAnimation) return;
@@ -83,7 +89,7 @@ public class Plugin : BaseUnityPlugin
 
         quickSlots.DeselectImmediate();
 
-        yield return new WaitForSeconds(holsterTime + 0.01f);
+        yield return new WaitForSeconds(holsterTime + 0.05f);
 
         quickSlots.SelectImmediate(slot);
 
