@@ -1,0 +1,60 @@
+{
+  "$schema": "https://openmods.net/manifest.schema.json",
+  "schemaVersion": 2,
+  
+  "slug": "inspecttoolsorigins",
+  "name": "Inspect Tools: Origins",
+  "supportedGameId": "subnautica",
+  
+  "releaseAssets": ["InspectToolsOriginsv-*.zip"],
+  "primaryAsset": "InspectToolsOriginsv-*zip",
+  
+  "readme": "/InspectToolsOrigins/README.md",
+  
+  "thumbnail": "InspectToolsOrigins.jpg",
+  "media": [
+    {
+      "type": "image",
+      "label": "Example 1:-",
+      "url": "oex1.png",
+    },
+    {
+      "type": "image",
+      "label": "Example 2:-",
+      "url": "oex2.png",
+    },
+    {
+      "type": "image",
+      "label": "Example 3:-",
+      "url": "oex3.png",
+    },
+    {
+      "type": "image",
+      "label": "Example 4:-",
+      "url": "oex4.png",
+    },
+    {
+      "type": "image",
+      "label": "Example 5:-",
+      "url": "oex5.png",
+    },
+    {
+      "type": "image",
+      "label": "Config:-",
+      "url": "oconfig.png",
+    }
+  ],
+  
+  "dependencies": {
+    "1.0.0": [
+      {
+        "modId": 31,
+        "fromRelease": "5.4.23.5"
+      },
+      {
+        "modId": 30,
+        "fromRelease": "1.0.0-pre.50"
+      }
+    ]
+  }
+}
