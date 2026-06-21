@@ -87,7 +87,7 @@ public class Plugin : BaseUnityPlugin
 
         quickSlots.DeselectImmediate();
 
-        yield return new WaitForSeconds(holsterTime + 0.01f);
+        yield return new WaitForSeconds(holsterTime + 0.03f);
 
         quickSlots.SelectImmediate(slot);
 
