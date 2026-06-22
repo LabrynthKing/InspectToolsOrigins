@@ -414,7 +414,7 @@ obj/
 
 # Chica Chicken
 .idea/
-.dist/
+dist/
 
 # User-specific stuff
 .idea/**/workspace.xml

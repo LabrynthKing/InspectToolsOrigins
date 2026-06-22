@@ -48,8 +48,8 @@
   "dependencies": {
     "1.0.0": [
       {
-        "modId": 31,
-        "fromRelease": "5.4.23.5"
+        "modId": 30,
+        "fromRelease": "1.0.0-pre.50"
       },
       {
         "modId": 58,

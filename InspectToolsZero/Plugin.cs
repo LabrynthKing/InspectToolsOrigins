@@ -82,14 +82,15 @@ public class Plugin : BaseUnityPlugin
     private IEnumerator InspectRoutine(QuickSlots quickSlots, int slot, TechType techy, float holsterTime)
     {
         _isInspecting = true;
-        Logger.LogInfo($"Inspecting tool: {techy}");
+        Logger.LogDebug($"Inspecting tool: {techy}");
 
         if (Player.main.usedTools.Contains(techy))
             Player.main.usedTools.Remove(techy);
 
-        quickSlots.DeselectImmediate();
+        quickSlots.Deselect();
 
-        yield return new WaitForSeconds(holsterTime + 0.05f); // BZ Needs More Time For Some Reason
+        yield return new WaitForSeconds(holsterTime + 0.03f); // BZ Needs More Time For Some Reason
+        yield return null;
 
         quickSlots.SelectImmediate(slot);
 
