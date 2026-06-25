@@ -16,19 +16,14 @@
 
 using Nautilus.Json;
 using Nautilus.Options.Attributes;
-using UnityEngine;
 
-namespace InspectToolsZero;
+namespace InspectToolsOrigins;
 
-[Menu("Inspect Tools: Zero")]
+[Menu("Inspect Tools - Origins")]
 public class Config : ConfigFile
 {
-    [Toggle(LabelLanguageId = "EnableRandom", TooltipLanguageId = "EnableRandom_ToolTip", Order = 2)]
+    [Toggle(LabelLanguageId = "EnableRandom", TooltipLanguageId = "EnableRandom_ToolTip")]
     public bool EnableRandom;
-
-    [Keybind(LabelLanguageId = "OptionInspectButton_Bind", TooltipLanguageId = "OptionDesc_InspectButton_Bind",
-        Order = 1)]
-    public KeyCode InspectKeyBind;
 
     [Slider(LabelLanguageId = "RandomChance", TooltipLanguageId = "RandomChance_ToolTip", DefaultValue = 10,
         Min = 0, Max = 100, Step = 1, Format = "{0:F0} %")]

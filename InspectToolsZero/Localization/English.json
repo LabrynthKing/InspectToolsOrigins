@@ -1,4 +1,8 @@
 {
   "OptionInspectButton_Bind": "Inspect",
-  "OptionDesc_InspectButton_Bind": "The Key Used To Inspect The Tools"
+  "OptionDesc_InspectButton_Bind": "The Key Used To Inspect The Tools",
+  "EnableRandom": "Enable Random Inspections",
+  "EnableRandom_ToolTip": "Enable Or Disable Random Inspections Whenever You Pull Out/Switch To A Tool Based On A Chance",
+  "RandomChance": "Chance (%)",
+  "RandomChance_ToolTip": "Chance Of Random Inspections In %"
 }

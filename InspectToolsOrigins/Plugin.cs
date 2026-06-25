@@ -36,6 +36,8 @@ public class Plugin : BaseUnityPlugin
         .AvoidConflicts()
         .WithCategory(PluginInfo.PLUGIN_NAME);
 
+    public static Config ModConfig;
+
     private bool _isInspecting;
 
     public new static ManualLogSource Logger { get; private set; }
@@ -49,18 +51,18 @@ public class Plugin : BaseUnityPlugin
         // Register Localization
         LanguageHandler.RegisterLocalizationFolder();
 
+        ModConfig = OptionsPanelHandler.RegisterModOptions<Config>();
+
         Harmony.CreateAndPatchAll(Assembly, $"{PluginInfo.PLUGIN_GUID}");
-        Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+        Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} Is Loaded!");
     }
 
     private void Update()
     {
-        if (!GameInput.IsInitialized || uGUI_PDA.main?.tabOpen != PDATab.None ||
-            Player.main is null || Inventory.main is null || (DevConsole.instance?.state ?? true)) return;
+        if (!GameInput.IsInitialized || Player.main is null || uGUI_PDA.main?.tabOpen != PDATab.None ||
+            (DevConsole.instance?.state ?? true)) return;
 
-        if (_isInspecting) return;
-
-        if (!GameInput.GetButtonDown(InspectButton)) return;
+        if (_isInspecting || !GameInput.GetButtonDown(InspectButton)) return;
 
         var heldTool = Inventory.main.GetHeldTool();
         if (heldTool is null || !heldTool.hasFirstUseAnimation) return;
@@ -80,7 +82,7 @@ public class Plugin : BaseUnityPlugin
     private IEnumerator InspectRoutine(QuickSlots quickSlots, int slot, TechType techy, float holsterTime)
     {
         _isInspecting = true;
-        Logger.LogDebug($"Inspecting tool: {techy}");
+        Logger.LogDebug($"Inspecting Tool: {techy}");
 
         if (Player.main.usedTools.Contains(techy))
             Player.main.usedTools.Remove(techy);

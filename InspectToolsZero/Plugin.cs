@@ -30,7 +30,7 @@ public class Plugin : BaseUnityPlugin
 {
     private bool _isInspecting;
 
-    private static Config ModConfig { get; set; }
+    public static Config ModConfig { get; set; }
 
     public new static ManualLogSource Logger { get; private set; }
 
@@ -52,17 +52,15 @@ public class Plugin : BaseUnityPlugin
         }
 
         Harmony.CreateAndPatchAll(Assembly, $"{PluginInfo.PLUGIN_GUID}");
-        Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+        Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} Is Loaded!");
     }
 
     private void Update()
     {
-        if (Player.main is null || Inventory.main is null || uGUI_PDA.main?.tabOpen != PDATab.None ||
+        if (Player.main is null || uGUI_PDA.main?.tabOpen != PDATab.None ||
             (DevConsole.instance?.state ?? true)) return;
 
-        if (_isInspecting) return;
-
-        if (!Input.GetKeyDown(ModConfig.InspectKeyBind)) return;
+        if (_isInspecting || !Input.GetKeyDown(ModConfig.InspectKeyBind)) return;
 
         var heldTool = Inventory.main.GetHeldTool();
         if (heldTool is null || !heldTool.hasFirstUseAnimation) return;
@@ -82,14 +80,14 @@ public class Plugin : BaseUnityPlugin
     private IEnumerator InspectRoutine(QuickSlots quickSlots, int slot, TechType techy, float holsterTime)
     {
         _isInspecting = true;
-        Logger.LogDebug($"Inspecting tool: {techy}");
+        Logger.LogDebug($"Inspecting Tool: {techy}");
 
         if (Player.main.usedTools.Contains(techy))
             Player.main.usedTools.Remove(techy);
 
         quickSlots.Deselect();
 
-        yield return new WaitForSeconds(holsterTime + 0.03f); // BZ Needs More Time For Some Reason
+        yield return new WaitForSeconds(holsterTime + 0.03f);
         yield return null;
 
         quickSlots.SelectImmediate(slot);
