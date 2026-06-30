@@ -8,10 +8,11 @@
 
 ## **Features:-**
 
-- **All Tools Supported:-** Supports All Current Tools Which Have An Animation!
+- **All Tools Supported:** Supports All Current Tools Which Have An Animation!
 - **Random Inspections:** You Can Enable Random Inspections In Settings Allowing You To See Inspections Happen Randomly
   Whenever You Pull Out A Tool Based On A Configurable Chance From 0 To 100!
-- **Configurable:-** You Can Configure The KeyBind In The In-Game Settings.
+- **Individual Random Inspections:** Each Tool Can Have Its Own Chance According To Your Liking!
+- **Configurable:** You Can Configure The KeyBind In The In-Game Settings.
 
 ## **Installation:-**
 

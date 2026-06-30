@@ -1,5 +1,9 @@
 # Changelog:-
 
+## Version 1.2.0:-
+
+- Added Support For Different Chances Of Random Inspections For Each Tool
+
 ## Version 1.1.0:-
 
 - Added Random Inspections Support

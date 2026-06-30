@@ -29,8 +29,7 @@ internal class QuickSlotsPatches
     // ReSharper disable once UnusedMember.Local
     private static void Prefix(QuickSlots __instance, int slotID)
     {
-        if (!Plugin.ModConfig.EnableRandom || uGUI_PDA.main?.tabOpen != PDATab.None ||
-            (DevConsole.instance?.state ?? true)) return;
+        if (uGUI_PDA.main?.tabOpen != PDATab.None || (DevConsole.instance?.state ?? true)) return;
 
         if (slotID < 0 || slotID >= __instance.binding.Length) return;
 
@@ -42,11 +41,10 @@ internal class QuickSlotsPatches
 
         if (!targetItem.item.gameObject.TryGetComponent(out PlayerTool tool) || !tool.hasFirstUseAnimation) return;
 
-        // Plugin.Logger.LogDebug($"Checking Chance... {Plugin.ModConfig.RandomChance}");
+        var chance = Utils.Utils.GetChance(techy);
+        if (chance is null) return;
 
-        // It's A Tool With First Equip Anim, Now I Do Chance Shi
-        if (Random.NextDouble() * 100 > Plugin.ModConfig.RandomChance)
-            // Plugin.Logger.LogDebug("No Chance Bro");
+        if (Random.NextDouble() * 100 > chance)
             return;
 
         // Remove The Item So Its Forces The First Thingy
